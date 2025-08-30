@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE = 'http://localhost:5000';
+const API_BASE = 'https://mern-todo-app-0f8z.onrender.com';
 
 export interface User {
   id: string;

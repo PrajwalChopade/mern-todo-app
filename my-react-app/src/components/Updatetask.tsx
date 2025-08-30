@@ -21,7 +21,7 @@ function Updatetask() {
   // useEffect(() => {
   //   const fetchTask = async () => {
   //     try {
-  //       const res = await axios.get(`http://localhost:5000/task/${id}`);
+  //       const res = await axios.get(`https://mern-todo-app-0f8z.onrender.com/task/${id}`);
   //       const task: Task = res.data;
   //       setTextInput(task.title || "");  // ✅ Handle undefined values
   //       setdescInput(task.description || "");  // ✅ Handle undefined values
@@ -43,7 +43,7 @@ function Updatetask() {
 useEffect(() => {
   const fetchTask = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/task/${id}`);
+      const res = await axios.get(`https://mern-todo-app-0f8z.onrender.com/task/${id}`);
       const task: Task = res.data;
       setTextInput(task.title || "");
       setdescInput(task.description || "");
@@ -73,7 +73,7 @@ useEffect(() => {
 
   const updateTask = async () => {
     try {
-      await axios.put(`http://localhost:5000/updateTask/${id}`, {
+      await axios.put(`https://mern-todo-app-0f8z.onrender.com/updateTask/${id}`, {
         title: textInput,
         description: descInput,
         dueDate: dateInput,

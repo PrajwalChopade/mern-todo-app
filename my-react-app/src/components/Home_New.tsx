@@ -76,7 +76,7 @@ function Home({ user, onLogout }: HomeProps) {
     setCompletedTasks((prev) => prev.filter((t) => t._id !== id));
     
     try {
-      await axios.delete(`http://localhost:5000/deleteTask/${id}`);
+      await axios.delete(`https://mern-todo-app-0f8z.onrender.com/deleteTask/${id}`);
     } catch (err) {
       console.error("Error deleting task:", err);
       // Revert on error
@@ -92,7 +92,7 @@ function Home({ user, onLogout }: HomeProps) {
 
   const handleToggleComplete = async (id: string) => {
     try {
-      await axios.patch(`http://localhost:5000/toggleTask/${id}`);
+      await axios.patch(`https://mern-todo-app-0f8z.onrender.com/toggleTask/${id}`);
       await refreshTasks();
     } catch (err) {
       console.error("Error toggling task completion:", err);
@@ -103,10 +103,10 @@ function Home({ user, onLogout }: HomeProps) {
     const fetchTasks = async () => {
       setLoading(true);
       try {
-        const res = await axios.get("http://localhost:5000/active-tasks");
+        const res = await axios.get("https://mern-todo-app-0f8z.onrender.com/active-tasks");
         setTasks(res.data || []);
         
-        const completedRes = await axios.get("http://localhost:5000/completed-tasks");
+        const completedRes = await axios.get("https://mern-todo-app-0f8z.onrender.com/completed-tasks");
         setCompletedTasks(completedRes.data || []);
       } catch (err) {
         console.error("Error fetching tasks:", err);
@@ -130,10 +130,10 @@ function Home({ user, onLogout }: HomeProps) {
 
   const refreshTasks = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/active-tasks");
+      const res = await axios.get("https://mern-todo-app-0f8z.onrender.com/active-tasks");
       setTasks(res.data || []);
       
-      const completedRes = await axios.get("http://localhost:5000/completed-tasks");
+      const completedRes = await axios.get("https://mern-todo-app-0f8z.onrender.com/completed-tasks");
       setCompletedTasks(completedRes.data || []);
     } catch (err) {
       console.error("Error fetching tasks:", err);
@@ -524,7 +524,7 @@ const AddTaskModal = ({ onClose, onTaskAdded, isDark }: {
         priority: priority,
       };
 
-      await axios.post("http://localhost:5000/addTask", newTask);
+      await axios.post("https://mern-todo-app-0f8z.onrender.com/addTask", newTask);
       
       setTextInput("");
       setDescInput("");
@@ -678,7 +678,7 @@ const UpdateTaskModal = ({ task, onClose, onTaskUpdated, isDark }: {
     
     setIsSubmitting(true);
     try {
-      await axios.put(`http://localhost:5000/updateTask/${task._id}`, {
+      await axios.put(`https://mern-todo-app-0f8z.onrender.com/updateTask/${task._id}`, {
         title: textInput,
         description: descInput,
         dueDate: dateInput,
