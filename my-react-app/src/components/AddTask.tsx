@@ -20,7 +20,7 @@ function AddTask() {
     };
 
     // send data to backend
-    const res = await axios.post("http://localhost:5000/addTask", newTask);
+    const res = await axios.post("https://mern-todo-app-0f8z.onrender.com/addTask", newTask);
 
     console.log("✅ Task saved:", res.data);
 
